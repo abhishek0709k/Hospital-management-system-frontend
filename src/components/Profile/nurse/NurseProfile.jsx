@@ -25,9 +25,7 @@ function NurseProfile() {
       setAddress(user.address ? user.address.street || "" : "");
       setCity(user.address ? user.address.city || "" : "");
       setState(user.address ? user.address.state || "" : "");
-      const formattedDateOfBirth = user.dob
-        ? user.dob.split("T")[0]
-        : "";
+      const formattedDateOfBirth = user.dob ? user.dob.split("T")[0] : "";
       setdateofBirth(formattedDateOfBirth);
       setGender(user.gender || "");
       setEmail(user.email || "");
@@ -40,7 +38,7 @@ function NurseProfile() {
     e.preventDefault();
     try {
       axios
-        .put("http://localhost:5000/nurse/profile-update", {
+        .put("https://hospital-management-system-backend-1-x13v.onrender.com/nurse/profile-update", {
           userId: userData._id,
           updatedProfile: {
             email: email,
@@ -78,11 +76,10 @@ function NurseProfile() {
     }
   };
 
-
   return (
     <section className="bg-slate-300 flex justify-center items-center">
       <div className="h-[80%] w-[80%] bg-white shadow-xl p-2 flex">
-      <NurseSidebar profilePic={profilePic} userName={userData.name} />
+        <NurseSidebar profilePic={profilePic} userName={userData.name} />
         <div className=" w-[70%] ms-24 p-4 flex flex-col justify-around ">
           <p className="font-semibold text-3xl">Account Settings</p>
           <form action="" className="flex flex-col h-[80%] justify-between">

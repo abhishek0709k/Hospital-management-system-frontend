@@ -29,7 +29,7 @@ function DoctorReview() {
   useEffect(() => {
     const getNurses = async () => {
       await axios
-        .get("http://localhost:5000/nurse/get-allNurses")
+        .get("https://hospital-management-system-backend-1-x13v.onrender.com/nurse/get-allNurses")
         .then((response) => {
           setNurses(response.data);
         })
@@ -48,7 +48,7 @@ function DoctorReview() {
   const handleAddMessage = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/doctor/add-message", {
+      .post("https://hospital-management-system-backend-1-x13v.onrender.com/doctor/add-message", {
         email,
         message,
         from,

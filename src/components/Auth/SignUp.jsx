@@ -21,7 +21,7 @@ function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/auth/register", data)
+      .post("https://hospital-management-system-backend-1-x13v.onrender.com/auth/register", data)
       .then((res) => {
         if (res.data.message === "Success") {
           navigate("/sign-in");
@@ -48,7 +48,6 @@ function SignUp() {
         className="flex items-center  justify-center px-8 py-24"
       >
         <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md bg-[#CCD5AE] shadow-xl shadow-black p-5 rounded-lg mt-6">
-
           <h2 className="text-center text-2xl font-bold leading-tight text-black">
             Sign up to create account
           </h2>
@@ -157,9 +156,7 @@ function SignUp() {
             </button>
           </Link>
         </div>
-        
       </motion.div>
-      
     </motion.section>
   );
 }

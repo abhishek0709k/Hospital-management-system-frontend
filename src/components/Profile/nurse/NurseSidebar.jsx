@@ -16,13 +16,15 @@ const NurseSidebar = ({ profilePic, userName }) => {
 
   const handleSignOut = async (e) => {
     e.preventDefault();
-    await axios.get("http://localhost:5000/auth/logout").then((res) => {
-      if (res.data.message === "User Logged Out") {
-        localStorage.removeItem("user");
-        dispatch(logout());
-        window.location.href = "/";
-      }
-    });
+    await axios
+      .get("https://hospital-management-system-backend-1-x13v.onrender.com/auth/logout")
+      .then((res) => {
+        if (res.data.message === "User Logged Out") {
+          localStorage.removeItem("user");
+          dispatch(logout());
+          window.location.href = "/";
+        }
+      });
   };
 
   return (

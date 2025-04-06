@@ -15,7 +15,11 @@ function NurseBed() {
     const fetchData = async () => {
       try {
         await axios
-          .get(`http://localhost:5000/doctor/get-message/${currentUser.email}`)
+          .get(
+            `https://hospital-management-system-backend-1-x13v.onrender.com/doctor/get-message/${
+              currentUser.email
+            }`
+          )
           .then((res) => {
             setMessage(res.data);
           });

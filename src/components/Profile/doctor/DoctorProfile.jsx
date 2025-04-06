@@ -38,21 +38,24 @@ function DoctorProfile() {
     e.preventDefault();
     try {
       axios
-        .put("http://localhost:5000/doctor/profile-update", {
-          userId: userData._id,
-          updatedProfile: {
-            email: email,
-            name: name,
-            phoneno: mobileNumber,
-            address: {
-              street: address,
-              city: city,
-              state: state,
+        .put(
+          "https://hospital-management-system-backend-1-x13v.onrender.com/doctor/profile-update",
+          {
+            userId: userData._id,
+            updatedProfile: {
+              email: email,
+              name: name,
+              phoneno: mobileNumber,
+              address: {
+                street: address,
+                city: city,
+                state: state,
+              },
+              gender: gender,
+              dob: dateOfBirth,
             },
-            gender: gender,
-            dob: dateOfBirth,
-          },
-        })
+          }
+        )
         .then((res) => {
           if (res.data.status === "Success") {
             Swal.fire({
@@ -67,7 +70,7 @@ function DoctorProfile() {
           }
         });
     } catch (err) {
-      console.log("error")
+      console.log("error");
       Swal.fire({
         title: "Error",
         icon: "error",

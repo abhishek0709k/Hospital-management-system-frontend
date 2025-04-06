@@ -25,12 +25,15 @@ function ContactUs() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/user/add-contact-us", {
-        name: name,
-        phone: phone,
-        email: email,
-        message: message,
-      });
+      await axios.post(
+        "https://hospital-management-system-backend-1-x13v.onrender.com/user/add-contact-us",
+        {
+          name: name,
+          phone: phone,
+          email: email,
+          message: message,
+        }
+      );
       Swal.fire({
         title: "Success",
         icon: "success",

@@ -21,7 +21,7 @@ function AddDoctor() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/doctor/add-doctor", data)
+      .post("https://hospital-management-system-backend-1-x13v.onrender.com/doctor/add-doctor", data)
       .then((res) => {
         if (res.data.message === "Success") {
           navigate("/sign-in");
@@ -77,9 +77,7 @@ function AddDoctor() {
                     type="text"
                     placeholder="Full Name"
                     id="name"
-                    onChange={(e) =>
-                      setData({ ...data, name: e.target.value })
-                    }
+                    onChange={(e) => setData({ ...data, name: e.target.value })}
                     value={data.name}
                   ></input>
                 </div>

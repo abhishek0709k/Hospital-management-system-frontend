@@ -28,7 +28,9 @@ function Home() {
   const handleNewsletter = async (e) => {
     e.preventDefault();
     await axios
-      .post("http://localhost:5000/admin/new-letter", { email })
+      .post("https://hospital-management-system-backend-1-x13v.onrender.com/admin/new-letter", {
+        email,
+      })
       .then(() => {
         Swal.fire({
           title: "Success",
@@ -492,7 +494,7 @@ function Home() {
               </div>
             </div>
           </motion.div>
-        <Footer />
+          <Footer />
         </div>
       </section>
     </div>

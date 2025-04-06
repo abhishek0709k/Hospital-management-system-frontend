@@ -33,7 +33,7 @@ function SignIn() {
     e.preventDefault();
     dispatch(loginProgress());
     axios
-      .post("http://localhost:5000/auth/login", data)
+      .post("https://hospital-management-system-backend-1-x13v.onrender.com/auth/login", data)
       .then((res) => {
         if (res.data.role === "patient") {
           const user = res.data.user;

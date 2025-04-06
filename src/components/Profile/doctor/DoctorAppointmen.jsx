@@ -14,7 +14,9 @@ function DoctorAppointmen() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/appointment/get-appointment/${currentUser._id}`
+          `${
+            import.meta.env.VITE_REACT_APP_API_URL
+          }/appointment/get-appointment/${currentUser._id}`
         );
         setAppointments(response.data);
       } catch (error) {

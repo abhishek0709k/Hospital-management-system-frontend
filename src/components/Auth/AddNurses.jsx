@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 function AddNurse() {
   const [data, setData] = useState({
     name: "",
-    email: ""
+    email: "",
   });
   const navigate = useNavigate();
   const { ref, inView } = useInView({
@@ -20,7 +20,7 @@ function AddNurse() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/nurse/add-nurse", data)
+      .post(`https://hospital-management-system-backend-1-x13v.onrender.com/nurse/add-nurse`, data)
       .then((res) => {
         if (res.data.message === "Success") {
           navigate("/sign-in");
@@ -28,7 +28,7 @@ function AddNurse() {
       })
       .catch((err) => {
         Swal.fire({
-          title: "Error",
+          title: `Error`,
           icon: "error",
           text: `Error while adding the Doctor Please Try Again! ${err}`,
           button: "Ok",
@@ -76,9 +76,7 @@ function AddNurse() {
                     type="text"
                     placeholder="Full Name"
                     id="name"
-                    onChange={(e) =>
-                      setData({ ...data, name: e.target.value })
-                    }
+                    onChange={(e) => setData({ ...data, name: e.target.value })}
                     value={data.name}
                   ></input>
                 </div>

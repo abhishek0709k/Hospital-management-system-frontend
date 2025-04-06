@@ -41,7 +41,7 @@ function UserProfile() {
     e.preventDefault();
     try {
       axios
-        .put("http://localhost:5000/user/profile-update", {
+        .put("https://hospital-management-system-backend-1-x13v.onrender.com/user/profile-update", {
           userId: userData._id,
           updatedProfile: {
             email: email,

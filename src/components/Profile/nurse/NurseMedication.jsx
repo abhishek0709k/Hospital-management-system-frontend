@@ -26,7 +26,7 @@ function NurseMedication() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/user/get-users"
+          "https://hospital-management-system-backend-1-x13v.onrender.com/user/get-users"
         );
         setPatients(response.data);
       } catch (error) {
@@ -40,11 +40,16 @@ function NurseMedication() {
   const handleAddMedication = async (e) => {
     e.preventDefault();
     await axios
-      .post(`http://localhost:5000/user/add-medications/${changePatient}`, {
-        name,
-        frequency,
-        dosage,
-      })
+      .post(
+        `${
+          import.meta.env.VITE_REACT_APP_API_URL
+        }/user/add-medications/${changePatient}`,
+        {
+          name,
+          frequency,
+          dosage,
+        }
+      )
       .then((res) => {
         Swal.fire({
           title: "Success",

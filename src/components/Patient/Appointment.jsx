@@ -28,7 +28,9 @@ function Appointment() {
 
   useEffect(() => {
     const fetchDoctors = async (e) => {
-      const res = await axios.get("http://localhost:5000/doctor/get-doctors");
+      const res = await axios.get(
+        "https://hospital-management-system-backend-1-x13v.onrender.com/doctor/get-doctors"
+      );
       setDoctors(res.data);
     };
 
@@ -39,15 +41,18 @@ function Appointment() {
     e.preventDefault();
 
     await axios
-      .post(`http://localhost:5000/appointment/add-appointment`, {
-        patient: appointment.patient,
-        phone: appointment.phone,
-        doctor: appointment.doctor,
-        appointmentDate: appointment.appointmentDate,
-        reason: appointment.reason,
-        email: appointment.email,
-        time: appointment.time,
-      })
+      .post(
+        `https://hospital-management-system-backend-1-x13v.onrender.com/appointment/add-appointment`,
+        {
+          patient: appointment.patient,
+          phone: appointment.phone,
+          doctor: appointment.doctor,
+          appointmentDate: appointment.appointmentDate,
+          reason: appointment.reason,
+          email: appointment.email,
+          time: appointment.time,
+        }
+      )
       .then((res) => {
         Swal.fire({
           title: "Success",

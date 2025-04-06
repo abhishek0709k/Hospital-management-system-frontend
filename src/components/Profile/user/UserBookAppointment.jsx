@@ -35,7 +35,9 @@ function UserBookAppointment() {
       setEmail(user.email);
     };
     const fetchDoctors = async (e) => {
-      const res = await axios.get("http://localhost:5000/doctor/get-doctors");
+      const res = await axios.get(
+        "https://hospital-management-system-backend-1-x13v.onrender.com/doctor/get-doctors"
+      );
       setDoctors(res.data);
     };
 
@@ -47,15 +49,18 @@ function UserBookAppointment() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios
-      .post("http://localhost:5000/appointment/add-appointment", {
-        patient: userData.userName,
-        phone: mobileNumber,
-        doctor: doctor,
-        appointmentDate: appointmentDate,
-        reason: reason,
-        email: email,
-        time: time,
-      })
+      .post(
+        "https://hospital-management-system-backend-1-x13v.onrender.com/appointment/add-appointment",
+        {
+          patient: userData.userName,
+          phone: mobileNumber,
+          doctor: doctor,
+          appointmentDate: appointmentDate,
+          reason: reason,
+          email: email,
+          time: time,
+        }
+      )
       .then((res) => {
         Swal.fire({
           title: "Success",

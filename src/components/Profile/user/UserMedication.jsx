@@ -13,7 +13,9 @@ function UserMedication() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/user/get-medications/${userData.email}`
+          `https://hospital-management-system-backend-1-x13v.onrender.com/user/get-medications/${
+            userData.email
+          }`
         );
 
         const data = response.data;

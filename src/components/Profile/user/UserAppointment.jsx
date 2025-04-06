@@ -30,7 +30,11 @@ function UserAppointment() {
     const email = user.email;
     const fetchAppointments = async (email) => {
       await axios
-        .get(`http://localhost:5000/appointment/get-appointments/${email}`)
+        .get(
+          `${
+            import.meta.env.VITE_REACT_APP_API_URL
+          }/appointment/get-appointments/${email}`
+        )
         .then((res) => {
           setAppointments(res.data);
         })
