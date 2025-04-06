@@ -60,7 +60,7 @@ function AddNurse() {
               Sign In
             </Link>
           </p>
-          <form className="mt-8">
+          <form className="mt-8" onSubmit={handleSubmit}>
             <div className="space-y-5">
               <div>
                 <label
@@ -103,16 +103,17 @@ function AddNurse() {
                 </div>
               </div>
             </div>
-          </form>
-          <div className="mt-3 space-y-3">
+            <div className="mt-3 space-y-3">
             <button
-              onClick={handleSubmit}
-              type="button"
+            //   onClick={handleSubmit}
+              type="submit"
               className="relative inline-flex w-full items-center justify-center rounded-md border border-gray-400 bg-black px-3.5 py-2.5 font-semibold text-white transition-all duration-200 hover:bg-slate-900 "
             >
               Add Nurse
             </button>
           </div>
+          </form>
+         
         </div>
       </motion.div>
     </motion.section>
