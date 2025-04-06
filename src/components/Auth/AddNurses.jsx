@@ -19,7 +19,8 @@ function AddNurse() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    axios
+    if(data.name !=="" && data.email !== ""){
+        axios
       .post(`https://hospital-management-system-backend-1-x13v.onrender.com/nurse/add-nurse`, data)
       .then((res) => {
         if (res.data.message === "Success" && data.email !== "" && data.name !== "") {
@@ -34,6 +35,8 @@ function AddNurse() {
           button: "Ok",
         });
       });
+    }
+    
   };
 
   return (
@@ -60,7 +63,7 @@ function AddNurse() {
               Sign In
             </Link>
           </p>
-          <form className="mt-8" onSubmit={handleSubmit}>
+          <form className="mt-8" onSubmit={handleSubmit} autoComplete="off">
             <div className="space-y-5">
               <div>
                 <label
