@@ -22,7 +22,7 @@ function AddNurse() {
     axios
       .post(`https://hospital-management-system-backend-1-x13v.onrender.com/nurse/add-nurse`, data)
       .then((res) => {
-        if (res.data.message === "Success") {
+        if (res.data.message === "Success" && data.email !== "" && data.name !== "") {
           navigate("/sign-in");
         }
       })
